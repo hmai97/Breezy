@@ -7,30 +7,32 @@ import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 
 function Pricing({ showToast }) {
-const { hash } = useLocation();
+    // Use the useLocation hook to get the current URL hash
+    const { hash } = useLocation();
     useEffect(() => {
         if (hash) {
-        // Remove the '#' character from the hash string
-        const element = document.getElementById(hash.replace('#', ''));
-        if (element) {
-            setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
+            const element = document.getElementById(hash.substring(1));
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+            }
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     }, [hash]);
 
-  return (
-    <>
-      <Header />
-      <main className="pricing-page">
-        <PricingCards showToast={showToast} />
-        <Stats />
-        <Testimonials />
-      </main>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <main className="pricing-page">
+                <PricingCards showToast={showToast} />
+                <Stats />
+                <Testimonials />
+            </main>
+            <Footer />
+        </>
+    );
 }
 
 export default Pricing;

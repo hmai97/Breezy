@@ -4,14 +4,8 @@ function Footer() {
       <div className="footer-grid">
 
         <div className="footer-brand">
-          <div
-            className="nav-brand"
-            style={{
-              color: "#fff",
-              background: "none",
-              WebkitTextFillColor: "unset",
-            }}
-          >
+          <div  className="nav-brand"
+            style={{  color: "#fff", background: "none", WebkitTextFillColor: "unset",}}>
             <em>Breezy</em>&thinsp;™
           </div>
 

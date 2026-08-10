@@ -44,7 +44,6 @@ function HowItWorks() {
         </p>
 
         <div className="steps">
-
           <div className="step">
             <div className="step-num">1</div>
             <h3>Take Our Quiz</h3>

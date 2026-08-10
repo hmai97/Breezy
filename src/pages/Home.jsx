@@ -11,30 +11,30 @@ import Footer from "../components/Footer";
 
 
 function Home({ showToast }) {
-const { hash } = useLocation();
+    const { hash } = useLocation();
     useEffect(() => {
         if (hash) {
-        // Remove the '#' character from the hash string
-        const element = document.getElementById(hash.replace('#', ''));
-        if (element) {
-            setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
+            // Remove the '#' character from the hash string
+            const element = document.getElementById(hash.replace('#', ''));
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
         }
     }, [hash]);
-  return (
-    <>
-      <Header/>
-      <Hero showToast={showToast} />
-      <Logos />
-      <Features />
-      <HowItWorks />
-      <AirPlanFinder />
-      <Newsletter showToast={showToast}/>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Hero showToast={showToast} />
+            <Logos />
+            <Features />
+            <HowItWorks />
+            <AirPlanFinder />
+            <Newsletter showToast={showToast} />
+            <Footer />
+        </>
+    );
 }
 
 export default Home;

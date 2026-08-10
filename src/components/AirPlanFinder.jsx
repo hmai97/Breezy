@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/AirPlanFinder.css'
+
 // Environment options for the first step
 const environments = [
     { id: 'alpine', emoji: '🌲', label: 'Alpine', sub: 'Crisp & clean' },
@@ -271,18 +272,13 @@ export default function AirPlanFinder() {
                             <div className="step-label">Step 3</div>
 
                             <h3 className="step-question">
-                                What's your ideal air ritual?
+                                When do you want your best air?
                             </h3>
 
                             <div className="card-grid">
                                 {rituals.map((item) => (
-                                    <button
-                                        key={item.id}
-                                        type="button"
-                                        onClick={() => setRitual(item.id)}
-                                        className={`finder-card ${ritual === item.id ? 'selected' : ''
-                                            }`}
-                                    >
+                                    <button key={item.id} type="button" onClick={() => setRitual(item.id)}
+                                        className={`finder-card ${ritual === item.id ? 'selected' : ''}`} >
                                         <div className="card-emoji">{item.emoji}</div>
                                         <div className="card-title">{item.label}</div>
                                         <div className="card-subtitle">{item.sub}</div>
