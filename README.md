@@ -30,14 +30,11 @@ For this project, Vercel allowed me to deploy the frontend without having to man
 The application uses React Router, so I also needed to configure Vercel to handle client-side routes correctly. Without this, refreshing a route such as `/pricing` could return a 404 because Vercel would look for a physical `/pricing` file instead of loading the React application.
 
 ---
-
 ## 2. CMS / Content Management
 
 ### How would a non-technical marketing person update the site?
 
-Currently, most of the site's content is stored directly in React components and JavaScript data structures.
-
-For example, the Air Plan Finder options are stored as JavaScript data:
+Currently, most of the site's content is stored directly in React components and JavaScript data structures. For example, the Air Plan Finder options are stored as JavaScript data:
 
 ```js
 const environments = [
@@ -51,13 +48,13 @@ const environments = [
 ]
 ```
 
-This works well for a small project, but it means a marketing person would need a developer to change the content and redeploy the application.
+This works well for a small project, but it means a marketing person would need a developer to update the content and redeploy the application.
 
 ### What would I change?
 
-For a production website, I would use a headless CMS such as Contentful, Sanity, or Strapi.
+For a production website, I would use **Sanity** as a headless CMS to separate content from the React application.
 
-Marketing users could then update things such as:
+I would move frequently updated content into Sanity, including:
 
 * Hero text
 * Pricing descriptions
@@ -68,9 +65,12 @@ Marketing users could then update things such as:
 * Promotional content
 * Air Plan Finder options
 
-The React application could retrieve this content through an API or CMS SDK.
+The React application could retrieve this content through Sanity's API and render it dynamically.
 
-This would allow marketing users to update content without changing the React source code.
+This would give marketing users a dedicated interface where they could update website content without modifying React code or waiting for a developer to make every content change.
+
+I would keep application logic, component behavior, and technical configuration in the React codebase. This keeps the separation between content and application functionality clear and makes the site easier to maintain as it grows.
+
 
 ---
 
@@ -112,8 +112,7 @@ I would also add appropriate security headers through the hosting platform or se
 
 ### How would another developer pick up and maintain this codebase?
 
-I separated the application into reusable React components and pages.
-
+I organized the React application into smaller components so that each section of the website is easier to find and update.
 The general structure is:
 
 ```text
@@ -136,11 +135,9 @@ src/
 └── ...
 ```
 
-The pages handle the main routes, while reusable sections are kept in the `components` directory.
+The pages directory contains the main routes, while reusable sections are kept in components.
 
-I also kept the Air Plan Finder's data separate from the JSX where possible. Environments, purposes, rituals, names, and metrics are stored as data structures.
-
-For example:
+I also kept the Air Plan Finder options in JavaScript arrays instead of putting all of the data directly inside the JSX. For example:
 
 ```js
 const rituals = [
@@ -161,11 +158,9 @@ This makes it easier to change or add options without rewriting the component it
 For a larger project, I would add:
 
 * TypeScript
-* Automated tests
-* ESLint and Prettier
-* More component-level separation
-* Dedicated data/configuration files
-* Component documentation
+* More automated tests
+* More reusable components where appropriate
+* Separate files for larger data sets
 * CI checks before deployment
 
 ---
