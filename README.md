@@ -5,6 +5,7 @@ Breezy is a playful landing page for a fictional premium artisanal air subscript
 **Tech stack:** React, Vite, JavaScript, React Router, CSS
 **Hosting:** Vercel
 **Live URL:** https://breezy-orpin.vercel.app/
+**Github Repository Link** https://github.com/hmai97/Breezy
 ---
 
 ## 1. Hosting
