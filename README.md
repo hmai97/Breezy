@@ -2,11 +2,10 @@
 
 Breezy is a playful landing page for a fictional premium artisanal air subscription service. This project was built as a frontend developer code test, with a focus on responsive design, reusable React components, interactive UI, and a fun product experience.
 
-**Tech stack:** React, Vite, JavaScript, React Router, CSS
-**Hosting:** Vercel
+**Tech stack:** React, Vite, JavaScript, React Router, CSS<br>
+**Hosting:** Vercel<br>
 **Live URL:** https://breezy-orpin.vercel.app/
 
-**Github Repository Link:** https://github.com/hmai97/Breezy
 ---
 
 ## 1. Hosting
